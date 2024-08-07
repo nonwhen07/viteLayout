@@ -3,8 +3,8 @@
 	  @content;
 	}
   }
-  @mixin mobile{ // 手機 576px 改為 767px 提早rwd，避免footer變形
-	@media(max-width: 767px){
+  @mixin mobile{ 
+	@media(max-width: 576px){
 	  @content;
 	}
   }
@@ -25,137 +25,117 @@
 	@include mobile{
 		padding: 24px 0px;
 	}
-}
-.footer-top{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 32px;
-	@include mobile{
-		margin-bottom: 20px;
+
+	&-top{
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 32px;
+
+		@include pad{
+			margin-bottom: 20px;
+		}
+		@include mobile{
+			margin-bottom: 20px;
+		}
+
+		.top-item{
+			@include pad{
+				width: 70%;
+			}
+
+			.contact-link{
+				font-size: 36px;
+				//    cursor: pointer;
+			   	@include mobile{
+					font-size: 16px;
+			   	}
+			}
+
+			.material-symbols-outlined {
+				font-variation-settings:
+				'FILL' 0,
+				'wght' 400,
+				'GRAD' 0,
+				'opsz' 40;
+				font-size: 40px;
+			  }
+		}
+	
+		&-nav{
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			height: 48px;
+			@include pad{
+				height: 40px;
+			}
+			@include mobile{
+				display: none;
+			}
+		}
+	
+		&-social{
+			display: flex;
+			gap: 32px;
+			@include pad{
+				gap: 16px;
+				height: 40px;
+			}
+
+			.social-link{
+				/* 設定圓角角度看設計稿，XD不曉得怎麼看先處理 border-radius: 40px;*/ 
+			   max-width: 48px;
+			   max-height: 48px;
+			   margin: 0 0;
+			
+				@include pad{
+					max-width: 40px;
+					   max-height: 40px;	
+				}
+			
+				   @include mobile{
+					max-width: 24px;
+					   max-height: 24px;
+				}
+			}
+			.social-link:hover{
+			   box-shadow: 0px 0px 16px 3px $secendary;
+			   transition: 0.5s; 
+			}
+		}
+		
 	}
-}
-.footer-hr{
-	margin-bottom: 32px;
-	@include mobile{
-		margin-bottom: 20px;
+
+	&-hr{
+		margin-bottom: 32px;
+		@include mobile{
+			margin-bottom: 20px;
+		}
 	}
-}
-.footer-nav{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 48px;
-	@include pad{
-		height: 40px;
+
+	&-bottom{
+		display: flex;
+		justify-content: space-between;
+		@include mobile{
+			// display: flex;
+			flex-wrap: wrap;
+		}
+	
+		&-content{
+			width: 75%;
+			@include pad{
+				width: 100%;
+			}
+		}
+	
+		&-link{
+			display: flex;
+			justify-content: space-between;
+			gap: 48px;
+			@include pad{
+				display: inline-block;
+			}
+		}
 	}
-	@include mobile{
-		display: none;
-	}
+	
 }
-.footer-social{
-	display: flex;
-	gap: 32px;
-	@include pad{
-		gap: 16px;
-		height: 40px;
-	}
-}
-.social-link{
-	/* 設定圓角角度看設計稿，XD不曉得怎麼看先處理 border-radius: 40px;*/ 
-   max-width: 48px;
-   max-height: 48px;
-   margin: 0 0;
-}
-.social-link:hover{
-   box-shadow: 0px 0px 16px 3px $secendary;
-   transition: 0.5s; 
-}
-.contact-link{
-	font-size: 36px;
-	//    cursor: pointer;
-   @include mobile{
-		font-size: 16px;
-   }
-}
-.footer-bottom{
-	display: flex;
-	justify-content: space-between;
-	@include mobile{
-		// display: flex;
-		flex-wrap: wrap;
-	}
-}
-
-.bottom-content{
-	width: 75%;
-	@include pad{
-		width: 100%;
-	}
-}
-
-
-.bottom-link{
-	display: flex;
-	justify-content: space-between;
-	gap: 48px;
-	@include mobile{
-		display: inline-block;
-	}
-}
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 40;
-  font-size: 40px;
-}
-
-
-// @media (max-width: 992px) { /* 平板 */
-// 	.footer{
-// 		padding-right: 24px;
-// 		padding-left: 24px;
-// 		padding-top: 48px;
-// 		padding-bottom: 40px;
-// 	}
-// 	.footer-nav{
-// 		height: 40px;
-// 	}
-// 	.footer-social{
-// 		gap: 16px;
-// 		height: 40px;
-// 	}
-//  }
-
-//  @media (max-width: 767px) { /* 手機 576px 改為 767px 提早rwd，避免footer變形 */
-// 	.footer{
-// 		padding: 24px 0px;
-// 	}
-// 	.footer-top{
-// 		margin-bottom: 20px;
-// 	}
-// 	.footer-nav{
-// 		display: none;
-// 	}
-// 	.contact-link{
-// 		font-size: 16px;
-// 	}
-// 	.footer-hr{
-// 		margin-bottom: 20px;
-// 	}
-
-// 	.footer-bottom{
-// 		display: flex;
-// 		flex-wrap: wrap;
-// 	}
-
-// 	.bottom-content{
-// 		width: 100%;
-// 	}
-
-// 	.bottom-link{
-// 		display: inline-block;
-// 	}
-//  }

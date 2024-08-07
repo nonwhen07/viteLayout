@@ -14,51 +14,55 @@
 	background-color: $primary;
 	color: #ffffff;
 	font-size: 20px;
-}
-.header-bar{
-	padding: 24px 0px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
 
-	@include pad{
-		padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36 - 12= 24px */
+	&-bar{
+		padding: 24px 0px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+	
+		@include pad{
+			padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36 - 12= 24px */
+		}
+		@include mobile{
+			padding: 0 0;
+		}
 	}
-	@include mobile{
-		padding: 0 0;
-	}
-}
 
-.header .logo{
-	margin: 0 0;
-	width: 80px;
-	height: auto;
-
-	@include mobile{
+	.logo{
+		margin: 0 0;
 		width: 80px;
-		padding-top: 12px;
-		padding-bottom: 12px;
-		padding-left: 12px;
+		height: auto;
+	
+		@include mobile{
+			width: 80px;
+			padding-top: 12px;
+			padding-bottom: 12px;
+			padding-left: 12px;
+		}
+	}
+
+	&-nav{
+		width: 512px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include mobile{
+			text-align: center;
+		}
+
+		li{
+			@include mobile{
+				width: 50%;
+				border: 1px solid #fff;
+			}
+		}
 	}
 }
 
-.header-nav{
-	width: 512px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	@include mobile{
-		text-align: center;
-	}
-}
 
-.header-nav li{
-	@include mobile{
-		width: 50%;
-		border: 1px solid #fff;
-	}
-}
+
 
 
 
