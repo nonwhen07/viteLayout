@@ -1,4 +1,87 @@
-// .header{
-//   background: #69F0AE;
-//   font-size: 64px;
+@mixin pad{
+	@media(max-width: 992px){
+	  @content;
+	}
+  }
+  @mixin mobile{
+	@media(max-width: 576px){
+	  @content;
+	}
+  }
+
+
+.header{
+	background-color: $primary;
+	color: #ffffff;
+	font-size: 20px;
+}
+.header-bar{
+	padding: 24px 0px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+
+	@include pad{
+		padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36 - 12= 24px */
+	}
+	@include mobile{
+		padding: 0 0;
+	}
+}
+
+.header .logo{
+	margin: 0 0;
+	width: 80px;
+	height: auto;
+
+	@include mobile{
+		width: 80px;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		padding-left: 12px;
+	}
+}
+
+.header-nav{
+	width: 512px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	@include mobile{
+		text-align: center;
+	}
+}
+
+.header-nav li{
+	@include mobile{
+		width: 50%;
+		border: 1px solid #fff;
+	}
+}
+
+
+
+// @media (max-width: 992px) { /* 平板 => 斷點 https://bootstrap5.hexschool.com/docs/5.0/layout/breakpoints/*/
+// 	.header-bar{
+// 		padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36 - 12= 24px */
+// 	}
+//  }
+// @media (max-width: 576px) { /* 手機 */
+// 	.header .header-bar{
+// 		padding: 0 0;
+// 	}
+// 	.header .logo{
+// 		width: 80px;
+// 		padding-top: 12px;
+// 		padding-bottom: 12px;
+// 		padding-left: 12px;
+// 	}
+// 	.header-nav{
+// 		text-align: center;
+// 	}
+// 	.header-nav li{
+// 		width: 50%;
+// 		border: 1px solid #fff;
+// 	}
 // }

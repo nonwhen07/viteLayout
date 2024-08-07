@@ -1,143 +1,3 @@
-// .index-title {
-//   font-size: 100px;
-// }
-
-
-
-/* Roboto */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/* 思源黑體 */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
-/* Bootstrap Icons CDN */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-
-@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0");
-
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
-
-
-/* base */
-body{
-	font-family: "Roboto", "Noto Sans TC", sans-serif;
-    line-height: 1.5; /* 先設定1.5，還不熟溪XD的設計稿 */
-}
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-	/* outline: solid 1px; */
-}
-
-a{
-	display: inline-block;
-	text-decoration: none;
-	color: #ffffff; /* 由於會被主業的css覆蓋先處理，調整後移除 */
-}
-
-img{
-    max-width: 100%;
-    margin: 0 auto;
-	vertical-align: middle;
-}
-
-
-/* layout*/
-.header{
-	background-color: #aa0601;
-	color: #ffffff;
-	font-size: 20px;
-}
-.header-bar{
-	padding: 24px 0px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-}
-.header-nav{
-	width: 512px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.header-logo{
-	margin: 0 0;
-	width: 80px;
-	height: auto;
-}
-@media (max-width: 992px) { /* 平板 => 斷點 https://bootstrap5.hexschool.com/docs/5.0/layout/breakpoints/*/
-	.header-bar{
-		padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36 - 12= 24px */
-	}
- }
-@media (max-width: 576px) { /* 手機 */
-	.header .header-bar{
-		padding: 0 0;
-	}
-
-	.header-logo{
-		width: 80px;
-		padding-top: 12px;
-		padding-bottom: 12px;
-		padding-left: 12px;
-	}
-
-	.header-nav{
-		text-align: center;
-	}
-
-	.header-nav li{
-		width: 50%;
-		border: 1px solid #fff;
-	}
-}
-
 
 /* banner */
 .banner{
@@ -145,7 +5,9 @@ img{
 	background-repeat: no-repeat; /* repeat：預設值，背景圖會重複；no-repeat：不重複背景圖 */
 	background-size: cover; /* 表示的方式可以寫成px、百分比、cover(將圖片填滿整個容器，若圖片小於容器且像素過低時，容易造成失真)、contain(將圖片縮小成可以完整放入容器的大小，可用於圖片大過容器時的情況) */
 	padding: 296px 0;
-	color: #650300;
+	// color: $secendary; => 改換css屬性變數寫法
+	// color: var(--secendary); => 改換scss屬性變數寫法
+	color: $secendary;
 	text-align: right;
 }
 .banner-title{
@@ -177,8 +39,8 @@ img{
 
  /* feature -  */
  .feature{
-	background-color: #FBF2F2;
-	color: #650300;
+	background-color: $bg-light;
+	color: $secendary;
 	text-align: center;
 	padding: 80px 0;
 }
@@ -215,7 +77,7 @@ img{
 	height: auto;
 }
 .card-title{
-	color: #650300;
+	color: $secendary;
 	font-size: 24px;
 	font-weight:bold;
 }
@@ -228,10 +90,15 @@ img{
 /* classic - 經典鏡框 */
 .classic{
 	background: #fff;
-	color: #AA0601;
+	color: $secendary;
 	text-align: center;
 	padding: 80px 0;
 }
+
+// .classic > .h2{
+// 	color: $secendary
+// }
+
 .classic-list{
 	display: flex;
 	flex-wrap: wrap;
@@ -240,7 +107,10 @@ img{
 .classic-list .classic-item{
 	/* width: 416px; */
 	width: calc(33.333% - 16px);
+	font-style: italic;
+	color: $primary;
 }
+
 @media (max-width: 992px) { /* 平板 */
 	.classic-list .classic-item{
 		width: 100%;
@@ -277,8 +147,9 @@ img{
 }
 .design-item-content{
 	background-color: #ffffff;
-	color: #AA0601;
+	color: $primary;
 	padding: 8px 0;
+	font-style: italic;
 	
 }
 @media (max-width: 992px) { /* 平板 */
@@ -299,7 +170,7 @@ img{
  /* recommend - 顧客推薦 */
  .recommend{
 	background-color: #ffffff;
-	color: #650300;
+	color: $secendary;
 	padding: 80px 0;
 }
 .recommend-list{
@@ -307,12 +178,14 @@ img{
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.recommend-item{
+.recommend-card{
 	width: calc(25% - 18px); /* 24*3=72， 72/4=18 */
 	/* height: auto; */
 	box-shadow: 0px 2px 6px #00000029;
 	border-radius: 4px;
 }
+
+
 .recommend-content{
 	font-size: 16px;
 	color: #000;
@@ -323,17 +196,17 @@ img{
 	color: #707070;
 }
 @media (max-width: 992px) { /* 平板 */
-	.recommend-item{
+	.recommend-card{
 		width: calc(50% - 12px);
 		margin-bottom: 24px;
 	}
  }
  @media (max-width: 576px) { /* 手機 */
-	.recommend-item{
+	.recommend-card{
 		width: 100%;
 		margin-bottom: 24px;
 	}
-	/* .recommend-list .recommend-item{
+	/* .recommend-list .recommend-card{
 		width: 100%;
 	}
 		非常奇怪的莊況-gap在w-100%下能用，w-50卻不行
@@ -346,11 +219,11 @@ img{
 
  /* component - 聯絡我們*/
  .contact{
-	background-color: #FBF2F2;
+	background-color: $bg-light;
 	padding: 104px 24px;
 }
 .contact-title{
-	color: #650300;
+	color: $secendary;
 	text-align: center;
 }
 .contact-main{
@@ -369,9 +242,14 @@ img{
 	font-size: 16px;
 	color: #000;
 }
+.form-input{
+	background: $bg-light;
+}
 .feedback{
 	height: 136px;
 	width: 100%;
+	resize: none;
+	background: $bg-light;
 }
 @media (max-width: 992px) { /* 平板 */
 	.contact-main{
@@ -383,64 +261,6 @@ img{
 		width: 100%;
 	}
  }
-
-
-
-.footer{
-	background-color: #aa0601;
-	color: #ffffff;
-	font-size: 16px;
-	padding-top: 48px;
-	padding-bottom: 32px;
-}
-.footer-top{
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 32px;
-}
-
-.footer-hr{
-	margin-bottom: 32px;
-}
-
-.footer-nav{
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	height: 48px;
-}
-
-.footer-social{
-	display: flex;
-	gap: 32px;
-}
-
-.social-link{
-	/* 設定圓角角度看設計稿，XD不曉得怎麼看先處理 border-radius: 40px;*/ 
-   max-width: 48px;
-   max-height: 48px;
-   margin: 0 0;
-}
-.social-link:hover{
-   box-shadow: 0px 0px 16px 3px #650300;
-   transition: 0.5s; 
-}
-
-.contact-link{
-   font-size: 36px;
-}
-
-.footer-bottom{
-	display: flex;
-	justify-content: space-between;
-}
-.bottom-link{
-	display: flex;
-	justify-content: space-between;
-	gap: 48px;
-}
-
 @media (max-width: 992px) { /* 平板 */
 	.footer{
 		padding-right: 24px;
@@ -495,19 +315,19 @@ img{
 /* component */
 .link-hover:hover{
 	width: 100%;
-	background: #650300;
-	box-shadow: 0px 0px 16px 3px #650300;
+	background: $secendary;
+	box-shadow: 0px 0px 16px 3px $secendary;
 	transition: 0.5s; 
 }
 
 /* border-radius: 32px; 點選設計稿中的btn在Layout-Radius 有顯示 32px */
 .btn{
-	background-color: #AA0601;
+	background-color: $primary;
 	color: #ffffff;
 }
 .btn:hover{
-	box-shadow: 0px 0px 16px 3px #650300;
-	background-color: #650300;
+	box-shadow: 0px 0px 16px 3px $secendary;
+	background-color: $secendary;
 	transition: 0.5s; /* 延遲秒數可加可不加 */
 }
 .btn-red{ 
@@ -533,78 +353,3 @@ img{
 
 
 
-/* utils */
-.container{
-    max-width: 1320px; /* 算法依樣 12列、列寬86、間距24 => 12*86+11*24=1296，由於盒模型(border box)padding向內推了12*2，最後要補回來1296+24  */
-    margin: 0 auto;
-	padding-right: 12px; /* 間距(24px) / 2 = 12px，避免內容貼在視窗邊邊 */
-	padding-left: 12px;
-}
-
-.w-50{
-    width: 50%;
-}
-.w-100{
-    width: 100%;
-}
-
-.h1{
-	font-size: 64px;
-	font-weight:bold;
-}
-.h2{
-	font-size: 48px;
-	font-weight:bold;
-}
-.h3{
-	font-size: 36px;
-}
-
-.text-center{
-	text-align: center;
-}
-
-.d-flex{
-	display: flex;
-}
-.justify-content-between{
-	justify-content: space-between;
-}
-.justify-content-center{
-	justify-content: center;
-}
-.align-items-center{
-	align-items: center;
-}
-
-.mr-5{
-	margin-right: 20px;
-}
-.mr-6{
-	margin-right: 24px;
-}
-.mr-8{
-	margin-right: 32px;
-}
-.mr-12{
-	margin-right: 48px;
-}
-
-.mb-2{
-	margin-bottom: 8px;
-}
-.mb-6{
-	margin-bottom: 24px;
-}
-.mb-8{
-	margin-bottom: 32px;
-}
-.mb-12{
-	margin-bottom: 48px;
-}
-.mb-16{
-	margin-bottom: 64px;
-}
-.mb-18{
-	margin-bottom: 72px;
-}
