@@ -9,33 +9,34 @@
 	// color: var(--secendary); => 改換scss屬性變數寫法
 	color: $secendary;
 	text-align: right;
-}
-.banner-title{
-	width: 50%;
-	margin-left: auto;
-}
-@media (max-width: 992px) { /* 平板 */
-	.banner{
+
+	@include pad{
 		background-image: url("../images/home-header-sm.png");
 	}
-	.banner-title{
-		width: 100%;
+
+	&-title{
+		width: 50%;
 		margin-left: auto;
+		@include pad{
+			width: 100%;
+			margin-left: auto;
+		}
+		.h1{
+			@include pad{
+				margin-bottom: 8px;
+			}
+			@include mobile{
+				font-size: 24px;
+				font-weight: bold;
+			}
+		}
+		.h3{
+			@include mobile{
+				font-size: 16px;
+			}
+		}
 	}
-	.banner-title .h1{
-		margin-bottom: 8px;
-	}
- }
- @media (max-width: 576px) { /* 手機 */
-	.banner-title .h1{
-		font-size: 24px;
-		font-weight: bold;
-	}
-	.banner-title .h3{
-		font-size: 16px;
-		
-	}
- }
+}
 
  /* feature -  */
  .feature{
@@ -43,48 +44,45 @@
 	color: $secendary;
 	text-align: center;
 	padding: 80px 0;
-}
-.feature-list{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.feature-list .card{
-	/* width: 306px; => width: 25%; 電腦版可以設定特定px，但是轉換成行動裝置邊嘗就不一致了，所以改成百分比較能自適應 */
-	width: calc(25% - 18px); /* 寫法一 : 算法如下card(間距24px)*3 = 72px，72px要分別扣在4個card上，
-		72/4 = 18px，故 width: calc(25% - 18px); 比較不直覺要多練，如果用寫法一、二記得card上面的間隔 mr-4要拿掉。  */
-	/* 寫法二 : width: 25%; + gap: 24px; */
-}
 
-@media (max-width: 992px) { /* 平板 */
-	.feature-list .card{
-		width: calc(50% - 12px); /* width: calc(50% - 12px); 寫法一 : 算法如下card(間距24px)*1 = 24px，24px要分別扣在2個card上，24/2 = 12px，故 width: calc(50% - 12px); 比較不直覺要多練  */
-		/* 寫法二 : display: grid;+ width: 50%; + gap: 24px; */
-		/* display: grid;
-		width: 50%;
-		gap: 24px; 這段gap無法生效 */
-		margin-bottom: 24px;
+	&-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.card{
+			/* width: 306px; => width: 25%; 電腦版可以設定特定px，但是轉換成行動裝置邊嘗就不一致了，所以改成百分比較能自適應 */
+			width: calc(25% - 18px); /* 寫法一 : 算法如下card(間距24px)*3 = 72px，72px要分別扣在4個card上，
+				72/4 = 18px，故 width: calc(25% - 18px); 比較不直覺要多練，如果用寫法一、二記得card上面的間隔 mr-4要拿掉。  */
+			/* 寫法二 : width: 25%; + gap: 24px; */
+			@include pad{
+				width: calc(50% - 12px); /* width: calc(50% - 12px); 寫法一 : 算法如下card(間距24px)*1 = 24px，24px要分別扣在2個card上，24/2 = 12px，故 width: calc(50% - 12px); 比較不直覺要多練  */
+				/* 寫法二 : display: grid;+ width: 50%; + gap: 24px; */
+				/* display: grid;
+				width: 50%;
+				gap: 24px; 這段gap無法生效 */
+				margin-bottom: 24px;
+			}
+			@include mobile{
+				width: 100%;
+				margin-bottom: 24px;
+			}
+
+			&-img{
+				max-width: 84px;
+				height: auto;
+			}
+			&-title{
+				color: $secendary;
+				font-size: 24px;
+				font-weight:bold;
+			}
+			&-content{
+				color: #000000;
+				font-size: 16px;
+			}
+		}
 	}
- }
-@media (max-width: 576px) { /* 手機 */
-	.feature-list .card{
-		width: 100%;
-		margin-bottom: 24px;
-	}
- }
-.card-img{
-	max-width: 84px;
-	height: auto;
-}
-.card-title{
-	color: $secendary;
-	font-size: 24px;
-	font-weight:bold;
-}
-.card-content{
-	color: #000000;
-	font-size: 16px;
-	/* text-align: left; */
 }
 
 /* classic - 經典鏡框 */
@@ -95,9 +93,6 @@
 	padding: 80px 0;
 }
 
-// .classic > .h2{
-// 	color: $secendary
-// }
 
 .classic-list{
 	display: flex;
@@ -136,36 +131,31 @@
 	color: #ffffff;
 	text-align: center;
 	padding: 80px 0;
-}
-.design-list{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.design-list .design-item{
-	width: 50%;
-}
-.design-item-content{
-	background-color: #ffffff;
-	color: $primary;
-	padding: 8px 0;
-	font-style: italic;
-	
-}
-@media (max-width: 992px) { /* 平板 */
-	.design-list .design-item{
-		width: 100%;
+
+	&-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		@include pad{
+			display: grid;
+			gap: 24px 0;
+		}
+		
+		.list-item{
+			width: 50%;
+			@include pad{
+				width: 100%;
+			}
+		}
 	}
-	.design-list{
-		display: grid;
-		gap: 24px 0;
+
+	.list-content{
+		background-color: #ffffff;
+		color: $primary;
+		padding: 8px 0;
+		font-style: italic;
 	}
- }
- @media (max-width: 576px) { /* 手機 */
-	.design-list .design-item{
-		width: 100%;
-	}
- }
+}
 
  /* recommend - 顧客推薦 */
  .recommend{
@@ -324,32 +314,29 @@
 .btn{
 	background-color: $primary;
 	color: #ffffff;
+
+	&-red{ 
+		padding: 6px 12px;
+	}
+
+	&-submit{
+		text-align: center;
+		padding: 16px 176px; 
+		@include pad{
+			width: 60%;
+			text-align: center;
+			padding: 16px 0; 
+		}
+		@include mobile{
+			width: 100%;
+			text-align: center;
+			padding: 16px 0; 
+		}
+	}
 }
 .btn:hover{
 	box-shadow: 0px 0px 16px 3px $secendary;
 	background-color: $secendary;
 	transition: 0.5s; /* 延遲秒數可加可不加 */
 }
-.btn-red{ 
-	padding: 6px 12px;
-}
-.btn-submit{
-	text-align: center;
-	padding: 16px 176px; 
-}
-@media (max-width: 992px) { /* 平板 */
-	.btn-submit{
-		text-align: center;
-		padding: 16px 136px; 
-	}
- }
-@media (max-width: 576px) { /* 手機 */
-	.btn-submit{
-		width: 100%;
-		text-align: center;
-		padding: 16px 142px; 
-	}
- }
-
-
 

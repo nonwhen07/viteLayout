@@ -1,13 +1,13 @@
-@mixin pad{
-	@media(max-width: 992px){
-	  @content;
-	}
-  }
-  @mixin mobile{
-	@media(max-width: 576px){
-	  @content;
-	}
-  }
+// @mixin pad{
+// 	@media(max-width: 992px){
+// 	  @content;
+// 	}
+//   }
+//   @mixin mobile{
+// 	@media(max-width: 576px){
+// 	  @content;
+// 	}
+//   }
 
 
 .header{
@@ -15,44 +15,52 @@
 	color: #ffffff;
 	font-size: 20px;
 
-	&-bar{
-		padding: 24px 0px;
+	&-wrapper{
 		display: flex;
-		flex-wrap: wrap;
+		// flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
 	
+		padding: 24px 0px;
 		@include pad{
-			padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36 - 12= 24px */
+			padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36-12= 24px */
 		}
 		@include mobile{
-			padding: 0 0;
+			flex-direction: column; // 原本由row排改column，或是用flex-wrap: wrap;
+			align-items: flex-start;
+			// padding: 0 0;   改用通用樣式 px-sm-0 py-sm-0
 		}
 	}
 
 	.logo{
 		margin: 0 0;
 		width: 80px;
-		height: auto;
-	
+		height: 48px;
 		@include mobile{
-			width: 80px;
-			padding-top: 12px;
-			padding-bottom: 12px;
-			padding-left: 12px;
+			margin-top: 12px;
+			margin-bottom: 12px;
+			// margin-right: 36px;
+			// padding-top: 12px;
+			// padding-bottom: 12px;
+			// padding-left: 12px;
 		}
 	}
 
-	&-nav{
-		width: 512px;
+	.nav{
+		// width: 512px;
+		width: 40%; // width: 512px; 512/1296=39.5 約40%
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		@include pad{
+			width: 75%;
+		}
 		@include mobile{
+			width: 100%;
 			text-align: center;
 		}
 
-		li{
+		&-item{
 			@include mobile{
 				width: 50%;
 				border: 1px solid #fff;
@@ -61,6 +69,19 @@
 	}
 }
 
+
+@include mobile{
+
+	.px-sm-0{
+		padding-right: 0px;
+		padding-left: 0px;
+	}
+
+	.py-sm-0{
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
 
 
 
