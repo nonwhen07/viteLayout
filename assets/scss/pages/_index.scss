@@ -1,4 +1,3 @@
-
 /* banner */
 .banner{
 	background-image: url("../images/home-header.png");
@@ -38,8 +37,8 @@
 	}
 }
 
- /* feature -  */
- .feature{
+ /* feature - 服務介紹 */
+.feature{
 	background-color: $bg-light;
 	color: $secendary;
 	text-align: center;
@@ -91,42 +90,41 @@
 	color: $secendary;
 	text-align: center;
 	padding: 80px 0;
-}
 
+	&-list{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 
-.classic-list{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.classic-list .classic-item{
-	/* width: 416px; */
-	width: calc(33.333% - 16px);
-	font-style: italic;
-	color: $primary;
-}
+		.list-item{
+			/* width: 416px; */
+			width: calc(33.333% - 16px);
+			font-style: italic;
+			color: $primary;
+		
+			@include pad{
+				width: 100%;
+				margin-bottom: 24px;
+			}
+			@include mobile{
+				width: 100%;
+				margin-bottom: 24px;
+			}
 
-@media (max-width: 992px) { /* 平板 */
-	.classic-list .classic-item{
-		width: 100%;
-		margin-bottom: 24px;
+			.item-img{
+				@include pad{
+					width: 336px;
+				}
+				@include mobile{
+					width: 348px;
+				}
+			}
+		}
 	}
-	.classic-img{
-		width: 336px;
-	}
- }
-@media (max-width: 576px) { /* 手機 */
-	.classic-list .classic-item{
-		width: 100%;
-		margin-bottom: 24px;
-	}
-	.classic-img{
-		width: 348px;
-	}
- }
+}
 
 /* design - 聯名設計 */
- .design{
+.design{
 	background-image: url("../assets/images/index-bg.png");
 	color: #ffffff;
 	text-align: center;
@@ -158,146 +156,92 @@
 }
 
  /* recommend - 顧客推薦 */
- .recommend{
+.recommend{
 	background-color: #ffffff;
 	color: $secendary;
 	padding: 80px 0;
-}
-.recommend-list{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.recommend-card{
-	width: calc(25% - 18px); /* 24*3=72， 72/4=18 */
-	/* height: auto; */
-	box-shadow: 0px 2px 6px #00000029;
-	border-radius: 4px;
-}
 
-
-.recommend-content{
-	font-size: 16px;
-	color: #000;
-	padding: 16px 16px;
-}
-.recommend-date{
-	font-size: 14px;
-	color: #707070;
-}
-@media (max-width: 992px) { /* 平板 */
-	.recommend-card{
-		width: calc(50% - 12px);
-		margin-bottom: 24px;
-	}
- }
- @media (max-width: 576px) { /* 手機 */
-	.recommend-card{
-		width: 100%;
-		margin-bottom: 24px;
-	}
-	/* .recommend-list .recommend-card{
-		width: 100%;
-	}
-		非常奇怪的莊況-gap在w-100%下能用，w-50卻不行
-		
-	.recommend-list{
-		display: grid;
-		gap: 24px 0;
-	} */
- }
-
- /* component - 聯絡我們*/
- .contact{
-	background-color: $bg-light;
-	padding: 104px 24px;
-}
-.contact-title{
-	color: $secendary;
-	text-align: center;
-}
-.contact-main{
-	width: 50%;
-	color: #000;
-	display: flex;
-	justify-content: center;
-	margin:0 auto;
-}
-.form-title{
-	font-size: 20px;
-	width: 100%;
-}
-.form{
-	width: 100%;
-	font-size: 16px;
-	color: #000;
-}
-.form-input{
-	background: $bg-light;
-}
-.feedback{
-	height: 136px;
-	width: 100%;
-	resize: none;
-	background: $bg-light;
-}
-@media (max-width: 992px) { /* 平板 */
-	.contact-main{
-		width: 75%;
-	}
- }
-@media (max-width: 576px) { /* 手機 */
-	.contact-main{
-		width: 100%;
-	}
- }
-@media (max-width: 992px) { /* 平板 */
-	.footer{
-		padding-right: 24px;
-		padding-left: 24px;
-		padding-top: 48px;
-		padding-bottom: 40px;
-	}
-	.footer-nav{
-		height: 40px;
-	}
-	.footer-social{
-		gap: 16px;
-		height: 40px;
-	}
- }
-
- @media (max-width: 767px) { /* 手機 576px 改為 767px 提早rwd，避免footer變形 */
-	.footer{
-		padding: 24px 0px;
-	}
-	.footer-top{
-		margin-bottom: 20px;
-	}
-	.footer-nav{
-		display: none;
-	}
-	.contact-link{
-		font-size: 16px;
-	}
-	.hr{
-		margin-bottom: 20px;
-	}
-
-	.footer-bottom{
+	&-list{
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: space-between;
 	}
 
-	.bottom-content{
-		width: 100%;
+	.card{
+		width: calc(25% - 18px); /* 24*3=72， 72/4=18 */
+		/* height: auto; */
+		box-shadow: 0px 2px 6px #00000029;
+		border-radius: 4px;
+	
+		@include pad{
+			width: calc(50% - 12px);
+			margin-bottom: 24px;
+		}
+		@include mobile{
+			width: 100%;
+			margin-bottom: 24px;
+		}
+
+		&-content{
+			font-size: 16px;
+			color: #000;
+			padding: 16px 16px;
+		}
+		&-date{
+			font-size: 14px;
+			color: #707070;
+		}
+	}
+	
+}
+
+/* component - 聯絡我們*/
+.contact{
+	background-color: $bg-light;
+	padding: 104px 24px;
+
+	&-title{
+		color: $secendary;
+		text-align: center;
 	}
 
-	.bottom-link{
-		display: inline-block;
-	}
- }
+	&-main{
+		width: 50%;
+		color: #000;
+		display: flex;
+		justify-content: center;
+		margin:0 auto;
 
+		@include pad{
+			width: 75%;
+		}
+		@include mobile{
+			width: 100%;
+		}
+
+		.form{
+			width: 100%;
+			font-size: 16px;
+			color: #000;
+
+			&-title{
+				font-size: 20px;
+				width: 100%;
+			}
+
+			&-input{
+				background: $bg-light;
+			}
+
+			.feedback{
+				height: 136px;
+				width: 100%;
+				resize: none;
+				background: $bg-light;
+			}
+		}
+	}
+}
 
 
 

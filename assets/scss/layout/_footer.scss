@@ -116,24 +116,33 @@
 	&-bottom{
 		display: flex;
 		justify-content: space-between;
+		// @include pad{
+		// 	flex-direction: column;
+		// }
 		@include mobile{
 			// display: flex;
-			flex-wrap: wrap;
+			//flex-wrap: wrap;
+			flex-direction: column;
 		}
 	
-		&-content{
+		.content{
 			width: 75%;
 			@include pad{
-				width: 100%;
+				width: 50%;
 			}
+			
 		}
 	
-		&-link{
+		.link{
 			display: flex;
 			justify-content: space-between;
 			gap: 48px;
 			@include pad{
-				display: inline-block;
+				width: 30%;
+			}
+			@include mobile{
+				gap: 0px;
+				flex-direction: column;
 			}
 		}
 	}
