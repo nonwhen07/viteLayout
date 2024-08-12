@@ -1,6 +1,14 @@
 .outlets{
-    margin-top: 176px;
+    margin-top: 96px;
     margin-bottom: 80px;
+    @include pad{
+        margin-bottom: 80px;
+    }
+    @include mobile{
+        margin-bottom: 40px;
+        margin-bottom: 64px;
+    }
+
     .h1{
         font-size: 48px;
         font-weight: bold;
@@ -9,15 +17,33 @@
     }
 
     .city{
-        
-        &-label{
-            font-size: 24px;
-        }
         &-select{
-            font-size: 24px;
-            width: 304px;
-            color: #495057;
+            display: flex;
+            margin-bottom: 10px;
+            @include pad{
+                width: 100%;
+            }
+
+            .label{
+                font-size: 24px;
+                margin-right: 16px;
+                @include mobile{
+                    font-size: 16px;
+                    margin-right: 8px;
+                }
+            }
+            .select{
+                font-size: 24px;
+                width: 304px;
+                color: #495057;
+                @include mobile{
+                    font-size: 18px;
+                    width: 276px;
+                }
+            }
         }
+        
+        
 
         &-list{
             display: flex;
@@ -27,10 +53,26 @@
 
             font-size: 24px;
             color: #495057;
+
+            @include pad{
+                gap: 24px 24px;
+            }
+            @include mobile{
+                gap: 24px 0px;
+            }
+
+
             .card{
                 // width: calc(33% - 16px); /* 24*2=48， 48/3=16 */
                 
                 width: 416px;
+
+                @include pad{
+                    width: 48%;
+                }
+                @include mobile{
+                    width: 100%;
+                }
 
                 &-body{
                     font-size: 20px;

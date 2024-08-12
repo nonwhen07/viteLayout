@@ -7,29 +7,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>outlets</title>
+    <title>stores</title>
 </head>
 
 <body>
     <%- include('./layout/header'); -%>
     
     <main>
-        
-        
         <div class="outlets">
             <div class="container">
                 <h1 class="h1 mb-8">門市據點</h1>
-                <div class="city mb-10">
-                    <div class="mb-10">
-                        <label class="city-label mr-4" for="city-select">選擇地區</label>
-                        <select id="city-select" class="city-select" name="city">
+                <div class="city">
+                    <div class="city-select">
+                        <label class="label mr-4" for="select">選擇地區</label>
+                        <select id="select" class="select" name="city">
+                            <option value="">全部</option>
                             <option value="台北市">台北市</option>
                             <option value="台中市">台中市</option>
                             <option value="高雄市">高雄市</option>
                         </select>
                     </div>
-                    
-                    
                     <ul class="city-list mb-2">
                         <li class="card">
                             <img src="../assets/images/store-1.png" alt="台北中山旗艦店.png">
@@ -167,30 +164,10 @@
                             <a class="btn btn-info" href="#">詳細資訊</a>
                         </li>
                     </ul>
-                      
-                </div>
-                
-                
-                
-                
-                <div class="card">
-
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
     </main>
-    
-
-
-
 
     <%- include('./layout/footer'); -%>
 

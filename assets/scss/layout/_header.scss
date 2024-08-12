@@ -1,15 +1,3 @@
-// @mixin pad{
-// 	@media(max-width: 992px){
-// 	  @content;
-// 	}
-//   }
-//   @mixin mobile{
-// 	@media(max-width: 576px){
-// 	  @content;
-// 	}
-//   }
-
-
 .header{
 	background-color: $primary;
 	color: #ffffff;
@@ -21,9 +9,10 @@
 		justify-content: space-between;
 		align-items: center;
 	
-		padding: 24px 0px;
+		padding: 24px 12px;
 		@include pad{
-			padding: 12px 24px; /* 由於container已經向內 padding 推了 12px，所以x軸 36-12= 24px */
+			
+			padding: 12px 36px;
 		}
 		@include mobile{
 			flex-direction: column; // 原本由row排改column，或是用flex-wrap: wrap;
@@ -36,13 +25,13 @@
 		margin: 0 0;
 		width: 80px;
 		height: 48px;
+
+		
+		
+
 		@include mobile{
 			margin-top: 12px;
 			margin-bottom: 12px;
-			// margin-right: 36px;
-			// padding-top: 12px;
-			// padding-bottom: 12px;
-			// padding-left: 12px;
 		}
 	}
 
