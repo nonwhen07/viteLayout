@@ -115,7 +115,7 @@
             width: 23%;
 
             @include pad{
-                width: 45%;
+                width: 48%;
             }
             @include mobile{
                 width: 100%;
@@ -137,7 +137,6 @@
             .color{
                 display: flex;
                 justify-content: flex-start;
-                
                 .c1{
                     border: 12px solid #5F3E2D;
                 }
@@ -145,8 +144,6 @@
                     border: 12px solid #B75929;
                 }
             }
-            
-            
         }
 
 
@@ -154,15 +151,9 @@
             @include pad{
                 display: none;
             }
-            @include mobile{
-                display: none;
-            }
         }
 
         .hide-mobile{ // 後面用框架或js處理數量
-            @include pad{
-                display: none;
-            }
             @include mobile{
                 display: none;
             }
@@ -174,6 +165,10 @@
 
     .pagination {
         display: inline-block;
+
+        .num{
+            padding:11px 15px;
+        }
 
         a {
             color: #555555;
@@ -191,27 +186,10 @@
             background-color: #000;
             color: white;
         }
-
-        a:hover:not(.active) {background-color: #ddd;}
-
-        .num{
-            padding:11px 16px;
+        a:hover:not(.active) {
+            background-color: #ddd;
         }
     }
-    
-    // .pagination a {
-    //     color: #555555;
-    //     border: 1px solid #555555;
-    //     float: left;
-    //     padding: 8px 16px;
-    //     text-decoration: none;
-    // }
-    
-    // .pagination a.active {
-    //     background-color: #000;
-    //     color: white;
-    // }
 
-    // .pagination a:hover:not(.active) {background-color: #ddd;}
 
 }
